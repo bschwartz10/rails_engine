@@ -65,9 +65,7 @@ namespace :import_data do
   desc "import invoice_items data"
   task :import_invoice_items_csv => :environment do
     CSV.foreach("db/csv/invoice_items.csv", headers: true, header_converters: :symbol) do |row|
-      Item.create(
-        name: row[:name],
-        description: row[:description],
+      InvoiceItem.create(
         unit_price: row[:unit_price],
         quantity: row[:quantity],
         created_at: row[:created_at],
