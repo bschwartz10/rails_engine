@@ -25,8 +25,9 @@ describe "Merchants API" do
 
   # it "can find first instance of merchant by id" do
   #   id = create(:merchant).id
-
-
-  end
+  # 
+  #   get "/api/v1/merchants/find/#{id}"
+  #
+  # end
 
 end
