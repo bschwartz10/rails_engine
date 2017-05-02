@@ -12,6 +12,7 @@ describe "Merchants API" do
 
     expect(merchants.count).to eq(3)
   end
+
   it "can get one merchant by its id" do
     id = create(:merchant).id
 
@@ -25,7 +26,7 @@ describe "Merchants API" do
 
   # it "can find first instance of merchant by id" do
   #   id = create(:merchant).id
-  # 
+  #
   #   get "/api/v1/merchants/find/#{id}"
   #
   # end
