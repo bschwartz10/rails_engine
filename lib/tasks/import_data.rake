@@ -71,7 +71,7 @@ namespace :import_data do
         created_at: row[:created_at],
         updated_at: row[:updated_at]
       )
-      puts "Created Invoice Item #{InvoiceItem.last.name}"
+      puts "Created Invoice Item #{InvoiceItem.last.id}"
     end
   end
 
