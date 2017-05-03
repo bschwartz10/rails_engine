@@ -25,7 +25,9 @@ describe "Merchants API" do
   end
 
   it "can find first instance of merchant by id" do
-    id = create(:merchant).id
+    merchant = create(:merchant)
+    id = merchant.id
+    name = merchant.name
 
     get "/api/v1/merchants/find?id=#{id}"
 
@@ -33,6 +35,7 @@ describe "Merchants API" do
 
     expect(response).to be_success
     expect(merchant["id"]).to eq(id)
+    expect(merchant["name"]).to eq(name)
   end
 
 end
