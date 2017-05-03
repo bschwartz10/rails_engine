@@ -58,7 +58,7 @@ describe 'Transactions API' do
   end
 
   it "can find first instance of transaction by created_at" do
-    transaction1 = Transaction.create(credit_card_number: "5541808923795242", credit_card_expiration_date: "", result: "success", created_at: "2017-05-01 18:58:40", updated_at: "2017-05-01 19:58:40")
+    transaction1 = create(:transaction)
 
     get "/api/v1/transactions/find?created_at=#{"2017-05-01 18:58:40"}"
 
@@ -69,7 +69,7 @@ describe 'Transactions API' do
   end
 
   it "can find first instance of transaction by updated_at" do
-    transaction1 = Transaction.create(credit_card_number: "5541808923795242", credit_card_expiration_date: "", result: "success", created_at: "2017-05-01 18:58:40", updated_at: "2017-05-01 19:58:40")
+    transaction1 = create(:transaction)
 
     get "/api/v1/transactions/find?updated_at=#{"2017-05-01 19:58:40"}"
 
@@ -80,22 +80,17 @@ describe 'Transactions API' do
   end
 
   it "can find all instances of transactions by id" do
-    transaction1 = Transaction.create(credit_card_number: "5541808923795242", credit_card_expiration_date: "", result: "success", created_at: "2017-05-01 18:58:40", updated_at: "2017-05-01 19:58:40")
-    transaction2 = Transaction.create(credit_card_number: "5541808923795243", credit_card_expiration_date: "", result: "success", created_at: "2017-05-01 18:58:40", updated_at: "2017-05-01 19:58:40")
-    transaction3 = Transaction.create(credit_card_number: "5541808923795244", credit_card_expiration_date: "", result: "success", created_at: "2017-05-01 18:58:40", updated_at: "2017-05-01 19:58:40")
+    transaction1 = create(:transaction)
 
     get "/api/v1/transactions/find_all?id=#{transaction1.id}"
 
     transaction = JSON.parse(response.body)
-
     expect(response).to be_success
     expect(transaction.first["id"]).to eq(transaction1.id)
   end
 
   it "can find all instances of transactions by credit card number" do
-    transaction1 = Transaction.create(credit_card_number: "5541808923795242", credit_card_expiration_date: "", result: "success", created_at: "2017-05-01 18:58:40", updated_at: "2017-05-01 19:58:40")
-    transaction2 = Transaction.create(credit_card_number: "5541808923795243", credit_card_expiration_date: "", result: "success", created_at: "2017-05-01 18:58:40", updated_at: "2017-05-01 19:58:40")
-    transaction3 = Transaction.create(credit_card_number: "5541808923795244", credit_card_expiration_date: "", result: "success", created_at: "2017-05-01 18:58:40", updated_at: "2017-05-01 19:58:40")
+    transaction1 = create(:transaction)
 
     get "/api/v1/transactions/find_all?credit_card_number=#{transaction1.credit_card_number}"
 
@@ -106,8 +101,8 @@ describe 'Transactions API' do
   end
 
   it "can find all instances of transactions by result" do
-    transaction1 = Transaction.create(credit_card_number: "5541808923795242", credit_card_expiration_date: "", result: "success", created_at: "2017-05-01 18:58:40", updated_at: "2017-05-01 19:58:40")
-    transaction2 = Transaction.create(credit_card_number: "5541808923795243", credit_card_expiration_date: "", result: "success", created_at: "2017-05-01 18:58:40", updated_at: "2017-05-01 19:58:40")
+    transaction1 = create(:transaction)
+    transaction2 = create(:transaction)
 
     get "/api/v1/transactions/find_all?result=#{"success"}"
 
@@ -119,8 +114,8 @@ describe 'Transactions API' do
   end
 
   it "can find all instances of transactions by created_at" do
-    transaction1 = Transaction.create(credit_card_number: "5541808923795242", credit_card_expiration_date: "", result: "success", created_at: "2017-05-01 18:58:40", updated_at: "2017-05-01 19:58:40")
-    transaction2 = Transaction.create(credit_card_number: "5541808923795243", credit_card_expiration_date: "", result: "success", created_at: "2017-05-01 18:58:40", updated_at: "2017-05-01 19:58:40")
+    transaction1 = create(:transaction)
+    transaction2 = create(:transaction)
 
     get "/api/v1/transactions/find_all?created_at=#{"2017-05-01 18:58:40"}"
 
@@ -132,8 +127,8 @@ describe 'Transactions API' do
   end
 
   it "can find all instances of transactions by updated_at" do
-    transaction1 = Transaction.create(credit_card_number: "5541808923795242", credit_card_expiration_date: "", result: "success", created_at: "2017-05-01 18:58:40", updated_at: "2017-05-01 19:58:40")
-    transaction2 = Transaction.create(credit_card_number: "5541808923795243", credit_card_expiration_date: "", result: "success", created_at: "2017-05-01 18:58:40", updated_at: "2017-05-01 19:58:40")
+    transaction1 = create(:transaction)
+    transaction2 = create(:transaction)
 
     get "/api/v1/transactions/find_all?updated_at=#{"2017-05-01 19:58:40"}"
 
