@@ -141,5 +141,15 @@ describe "Customers API" do
     expect(customer.second["id"]).to eq(customer2.id)
   end
 
+  it "can find a random customer" do
+    customer1 = create(:customer)
+
+    get "/api/v1/customers/random"
+
+    customer = JSON.parse(response.body)
+
+    expect(response).to be_success
+    expect(customer["id"]).to eq(customer1.id)
+  end
 
 end
