@@ -1,19 +1,8 @@
 Rails.application.routes.draw do
-  get '/api/v1/merchants/find', to: 'api/v1/merchants/find#show', as: 'api_v1_merchants_find'
-  get '/api/v1/merchants/find_all', to: 'api/v1/merchants/find#index', as: 'api_v1_merchants_finds'
 
-  get '/api/v1/transactions/find', to: 'api/v1/transactions/find#show', as: 'api_v1_transactions_find'
-  get '/api/v1/transactions/find_all', to: 'api/v1/transactions/find#index', as: 'api_v1_transactions_finds'
-
-  get '/api/v1/customers/find', to: 'api/v1/customers/find#show', as: 'api_v1_customers_find'
-  get '/api/v1/customers/find_all', to: 'api/v1/customers/find#index', as: 'api_v1_customers_finds'
 
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
-
-      resources :merchants, only: [:index, :show]
-      resources :transactions, only: [:index, :show]
-      resources :customers, only: [:index, :show]
 
       namespace :items do
         get "/find", to: "find#show"
@@ -39,6 +28,29 @@ Rails.application.routes.draw do
         #other routes here
       end
 
+      namespace :merchants do
+        get "/find", to: "find#show"
+        get "/find_all", to: "find#index"
+        get "/random", to: "random#show"
+      end
+        resources :merchants, only: [:index, :show] do
+
+      end
+
+      namespace :transactions do
+        get "/find", to: "find#show"
+        get "/find_all", to: "find#index"
+      end
+        resources :transactions, only: [:index, :show] do
+
+      end
+      namespace :customers do
+        get "/find", to: "find#show"
+        get "/find_all", to: "find#index"
+      end
+        resources :customers, only: [:index, :show] do
+
+      end
     end
   end
 end
