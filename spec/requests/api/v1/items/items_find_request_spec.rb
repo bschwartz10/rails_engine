@@ -33,7 +33,7 @@ describe 'Items API' do
     expect(response).to be_success
     expect(item["unit_price"]).to eq(item_price)
   end
-
+  # 
   # it "can find an item by date created" do
   #   created = "2017-01-01T00:00:00.000Z"
   #
