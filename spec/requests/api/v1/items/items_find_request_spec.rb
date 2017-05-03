@@ -29,9 +29,8 @@ describe 'Items API' do
     get "/api/v1/items/find?unit_price=#{item_price}"
 
     item = JSON.parse(response.body)
-
     expect(response).to be_success
-    expect(item["unit_price"]).to eq(item_price)
+    expect(item["unit_price"]).to eq("123.45")
   end
 
   # it "can find an item by date created" do

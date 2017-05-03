@@ -14,7 +14,7 @@ describe "Invoice items API" do
     expect(invoice_item["quantity"]).to eq(invoice_item_quantity)
   end
 
-  it "finds an invoice item by a quantity" do
+  it "finds an invoice item by a unit_price" do
     invoice_item_price = create(:invoice_item).unit_price
 
     get "/api/v1/invoice_items/find?unit_price=#{invoice_item_price}"
@@ -22,7 +22,7 @@ describe "Invoice items API" do
     invoice_item = JSON.parse(response.body)
 
     expect(response).to be_success
-    expect(invoice_item["unit_price"]).to eq(invoice_item_price)
+    expect(invoice_item["unit_price"]).to eq("123.45")
   end
 
 end
