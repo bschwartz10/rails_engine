@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/api/v1/transactions/find_all', to: 'api/v1/transactions/find#index', as: 'api_v1_transactions_finds'
 
   get '/api/v1/customers/find', to: 'api/v1/customers/find#show', as: 'api_v1_customers_find'
+  get '/api/v1/customers/find_all', to: 'api/v1/customers/find#index', as: 'api_v1_customers_finds'
 
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
