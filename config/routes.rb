@@ -34,7 +34,7 @@ Rails.application.routes.draw do
         get "/random", to: "random#show"
       end
         resources :merchants, only: [:index, :show] do
-
+          get "/items", to: "merchant_items#show"
       end
 
       namespace :transactions do
