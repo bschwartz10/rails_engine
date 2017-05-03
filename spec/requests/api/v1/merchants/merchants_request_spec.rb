@@ -24,16 +24,16 @@ describe "Merchants API" do
     expect(merchant["id"]).to eq(id)
   end
 
-  # it "can find first instance of merchant by id" do
-  #   id = create(:merchant).id
-  #
-  #   get "/api/v1/merchants/find?id=#{id}"
-  #
-  #   merchant = JSON.parse(response.body)
-  #
-  #   expect(response).to be_success
-  #   expect(merchant["id"]).to eq(id)
-  # end
+  it "can find first instance of merchant by id" do
+    id = create(:merchant).id
+
+    get "/api/v1/merchants/find?id=#{id}"
+
+    merchant = JSON.parse(response.body)
+
+    expect(response).to be_success
+    expect(merchant["id"]).to eq(id)
+  end
 
   it "can find first instance of merchant by name" do
     name = create(:merchant).name
@@ -120,4 +120,14 @@ describe "Merchants API" do
     expect(merchant.second["name"]).to eq(merchant2.name)
   end
 
+  it "can find a random merchant" do
+    merchant1 = create(:merchant)
+
+    get "/api/v1/merchants/random"
+
+    merchant = JSON.parse(response.body)
+
+    expect(response).to be_success
+    expect(merchant["id"]).to eq(merchant1.id)
+  end
 end
