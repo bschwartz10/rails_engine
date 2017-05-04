@@ -10,7 +10,7 @@ Rails.application.routes.draw do
         get "/random", to: "random#show"
       end
       resources :items, only: [:index, :show] do
-        get "/invoices", to: "items/items_invoice_items#show"
+        get "/invoice", to: "items/items_invoice_items#show"
         get "/merchant", to: "items/items_merchants#show"
       end
 
@@ -33,8 +33,8 @@ Rails.application.routes.draw do
         get "/transactions", to: "invoices/invoice_transactions#show"
         get "/invoice_items", to: "invoices/invoice_invoice_items#show"
         get "/items", to: "invoices/invoice_items#index"
-        get "/merchants", to: "invoices/invoice_merchants#show"
-        get "/customers", to: "invoices/invoice_customers#show"
+        get "/merchant", to: "invoices/invoice_merchants#show"
+        get "/customer", to: "invoices/invoice_customers#show"
       end
 
       namespace :merchants do
