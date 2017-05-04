@@ -1,4 +1,4 @@
-class Api::V1::ItemsMerchantsController < ApplicationController
+class Api::V1::Items::ItemsMerchantsController < ApplicationController
 
 def show
   render json: Item.find(params[:item_id]).merchant
