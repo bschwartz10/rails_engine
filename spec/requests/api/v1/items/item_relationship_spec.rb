@@ -3,13 +3,12 @@ require 'rails_helper'
 describe "Item API" do
   it "returns invoice items associated with an item" do
     item1 = create(:item)
-    create_list(:invoice_item, 3, item: item1)
-
+    invoices = create_list(:invoice_item, 3, item: item1)
     get "/api/v1/items/#{item1.id}/invoices"
     expect(response).to be_success
 
     invoice = JSON.parse(response.body)
-    expect(invoice.first["id"]).to eq(12)
+    expect(invoice.first["id"]).to eq(invoices[0].id)
   end
 
   it "returns an merchant associated with an item" do
