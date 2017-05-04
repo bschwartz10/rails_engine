@@ -5,7 +5,7 @@ describe "Invoices API" do
     merchant1 = create(:merchant)
     invoice1 = create(:invoice, merchant: merchant1)
 
-    get "/api/v1/invoices/#{invoice1.id}/merchants"
+    get "/api/v1/invoices/#{invoice1.id}/merchant"
     expect(response).to be_success
 
     invoice = JSON.parse(response.body)

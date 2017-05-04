@@ -4,7 +4,7 @@ describe "Item API" do
   it "returns invoice items associated with an item" do
     item1 = create(:item)
     invoices = create_list(:invoice_item, 3, item: item1)
-    get "/api/v1/items/#{item1.id}/invoices"
+    get "/api/v1/items/#{item1.id}/invoice_items"
     expect(response).to be_success
 
     invoice = JSON.parse(response.body)
