@@ -3,6 +3,7 @@ class Merchant < ApplicationRecord
   has_many :invoices
   has_many :customers, through: :invoices
   has_many :invoice_items, through: :invoices
+  has_many :transactions, through: :invoices
 
   def revenue(date = nil)
     if date.nil?
@@ -12,4 +13,7 @@ class Merchant < ApplicationRecord
     end
   end
 
+  def favorite_customer
+    customers.joins(:transactions).where(transactions: {result: 'success'}).group(:id).order("count('transactions.id') DESC").take
+  end
 end

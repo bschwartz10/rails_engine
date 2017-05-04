@@ -47,7 +47,7 @@ Rails.application.routes.draw do
           get "/items", to: "merchants/merchant_items#show"
           get "/invoices", to: "merchants/merchant_invoices#show"
           get "/revenue", to: "merchants/single_merchant_revenue#show"
-
+          get "/favorite_customer", to: "merchants/single_merchant_favorite_customer#show"
       end
 
       namespace :transactions do
