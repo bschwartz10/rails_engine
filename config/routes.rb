@@ -10,6 +10,7 @@ Rails.application.routes.draw do
         get "/random", to: "random#show"
       end
       resources :items, only: [:index, :show] do
+        get "/invoices", to: "items_invoice_items#show"
       end
 
       namespace :invoice_items do
