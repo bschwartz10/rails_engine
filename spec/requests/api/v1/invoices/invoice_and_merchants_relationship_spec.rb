@@ -9,6 +9,6 @@ describe "Invoices API" do
     expect(response).to be_success
 
     invoice = JSON.parse(response.body)
-    expect(invoice["id"]).to eq(31)
+    expect(invoice["id"]).to eq(merchant1.id)
   end
 end
