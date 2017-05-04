@@ -9,7 +9,7 @@ describe "Merchants API" do
 
     expect(response).to be_success
 
-    merchant = JSON.parse(response.body)
-    expect(merchant.first["name"]).to eq("Boxer")
+    item = JSON.parse(response.body)
+    expect(item.first["name"]).to eq("Boxer")
   end
 end
