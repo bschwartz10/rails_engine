@@ -10,8 +10,8 @@ Rails.application.routes.draw do
         get "/random", to: "random#show"
       end
       resources :items, only: [:index, :show] do
-        get "/invoices", to: "items_invoice_items#show"
-        get "/merchant", to: "items_merchants#show"
+        get "/invoices", to: "items/items_invoice_items#show"
+        get "/merchant", to: "items/items_merchants#show"
       end
 
       namespace :invoice_items do
@@ -20,8 +20,8 @@ Rails.application.routes.draw do
         get "/random", to: "random#show"
       end
       resources :invoice_items, only: [:index, :show] do
-        get "/invoice", to: "invoice_items_invoice#show"
-        get "/item", to: "invoice_items_item#show"
+        get "/invoice", to: "invoice_items/invoice_items_invoice#show"
+        get "/item", to: "invoice_items/invoice_items_item#show"
       end
 
       namespace :invoices do
@@ -30,11 +30,11 @@ Rails.application.routes.draw do
         get "/random", to: "random#show"
       end
       resources :invoices, only: [:index, :show] do
-        get "/transactions", to: "invoice_transactions#show"
-        get "/invoice_items", to: "invoice_invoice_items#show"
-        get "/items", to: "invoice_items#index"
-        get "/merchants", to: "invoice_merchants#show"
-        get "/customers", to: "invoice_customers#show"
+        get "/transactions", to: "invoices/invoice_transactions#show"
+        get "/invoice_items", to: "invoices/invoice_invoice_items#show"
+        get "/items", to: "invoices/invoice_items#index"
+        get "/merchants", to: "invoices/invoice_merchants#show"
+        get "/customers", to: "invoices/invoice_customers#show"
       end
 
       namespace :merchants do
@@ -44,8 +44,8 @@ Rails.application.routes.draw do
 
       end
         resources :merchants, only: [:index, :show] do
-          get "/items", to: "merchant_items#show"
-          get "/invoices", to: "merchant_invoices#show"
+          get "/items", to: "merchants/merchant_items#show"
+          get "/invoices", to: "merchants/merchant_invoices#show"
           get "/revenue", to: "merchants/single_merchant_revenue#show"
 
       end
@@ -56,7 +56,7 @@ Rails.application.routes.draw do
         get "/random", to: "random#show"
       end
         resources :transactions, only: [:index, :show] do
-          get "/invoice", to: "transactions_invoice#show"
+          get "/invoice", to: "transactions/transactions_invoice#show"
 
       end
       namespace :customers do
@@ -65,8 +65,8 @@ Rails.application.routes.draw do
         get "/random", to: "random#show"
       end
         resources :customers, only: [:index, :show] do
-          get "/invoices", to: "customers_invoices#show"
-          get "/transactions", to: "customers_transactions#show"
+          get "/invoices", to: "customers/customers_invoices#show"
+          get "/transactions", to: "customers/customers_transactions#show"
       end
     end
   end

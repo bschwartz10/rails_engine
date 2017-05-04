@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "Invoices API" do
-  it "returns a collection of associated items" do
+  xit "returns a collection of associated items" do
     merchant1 = create(:merchant)
     customer1 = create(:customer)
 
