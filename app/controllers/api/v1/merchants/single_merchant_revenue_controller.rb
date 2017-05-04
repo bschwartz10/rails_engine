@@ -1,8 +1,8 @@
 class Api::V1::Merchants::SingleMerchantRevenueController < ApplicationController
 
   def show
-    require "pry"; binding.pry
-    render json: Merchant.find(params[:merchant_id]).revenue
+    price = Merchant.find(params[:merchant_id]).revenue
+    render json: { "revenue" => unit_price(price) }
   end
 
 end
