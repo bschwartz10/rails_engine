@@ -6,9 +6,10 @@ describe "Merchants API" do
     create_list(:item, 3, merchant: merchant1)
 
     get "/api/v1/merchants/#{merchant1.id}/items"
+
     expect(response).to be_success
 
-    merchant = JSON.parse(response.body)
-    expect(merchant.first["name"]).to eq("Boxer")
+    item = JSON.parse(response.body)
+    expect(item.first["name"]).to eq("Boxer")
   end
 end
