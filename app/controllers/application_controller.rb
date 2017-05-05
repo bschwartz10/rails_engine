@@ -5,4 +5,5 @@ class ApplicationController < ActionController::API
     sprintf("%.2f", floated)
   end
 
+
 end

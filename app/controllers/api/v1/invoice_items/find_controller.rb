@@ -11,7 +11,7 @@ class::Api::V1::InvoiceItems::FindController < ApplicationController
 private
 
   def find_params
-    # params[:unit_price] = (params[:unit_price].to_f*100).round if params[:unit_price]
+    params[:unit_price] = (params[:unit_price].to_f * 100).round if params[:unit_price]    
     params.permit(:id, :unit_price, :invoice_id, :item_id, :quantity, :created_at, :updated_at)
   end
 
