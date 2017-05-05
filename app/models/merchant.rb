@@ -9,6 +9,10 @@ class Merchant < ApplicationRecord
     joins(:invoice_items).merge(InvoiceItem.successful).group(:id).order("sum(quantity * unit_price)DESC").limit(number)
   end
 
+  def self.most_items_sold(number)
+    Merchant.joins(:invoice_items).merge(InvoiceItem.successful).group(:id).order("sum(quantity) DESC").limit(number)
+  end
+
   def revenue(date = nil)
     if date.nil?
       invoices.joins(invoice_items: :transactions).merge(Transaction.successful).sum("quantity * unit_price")
