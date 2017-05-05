@@ -23,29 +23,6 @@ describe 'Items API' do
     expect(item["description"]).to eq(item_description)
   end
 
-  it "can find an item by it's unit_price" do
-    item_price = create(:item).unit_price
-
-    get "/api/v1/items/find?unit_price=#{item_price}"
-
-    item = JSON.parse(response.body)
-    expect(response).to be_success
-    expect(item["unit_price"]).to eq("123.45")
-  end
-
-  # it "can find an item by date created" do
-  #   created = "2017-01-01T00:00:00.000Z"
-  #
-  #   created_at_date = create(:item, created_at: created)
-  #
-  #   get "/api/v1/items/find?created_at=#{created}"
-  #
-  #   item = JSON.parse(response.body)
-  #
-  #   expect(response).to be_success
-  #   expect(item["created_at"]).to eq(created)
-  # end
-
   it "can find a random item" do
     item1 = create(:item)
 
