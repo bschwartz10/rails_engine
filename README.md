@@ -22,8 +22,8 @@ git clone https://github.com/bschwartz10/rails_engine.git
 
 Navigate into the project:
 ```
-cd rales_engine
-
+cd rails_engine
+```
 Bundle:
 ```
 bundle install
@@ -33,7 +33,7 @@ Create, migrate, and seed your database:
 ```
 rake db:create
 rake db:migrate
-rake db:seed
+rake import_data:all_data
 ```
 
 Run `rspec` in your terminal to ensure all tests are passing.
