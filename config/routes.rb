@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-
+  root 'api/v1/items/random#show'
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
 
