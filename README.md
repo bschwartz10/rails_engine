@@ -1,19 +1,31 @@
 
 # Rails Engine
 
-## Intro
+## Overview
 
-This project is an API sales data analysis tool. The return format for all endpoints is JSON.
+* This project is an API sales data analysis tool. The return format for all endpoints is JSON.
 
-The markdown for this project can be found [here](http://backend.turing.io/module3/projects/rails_engine)
+## Learning Goals
 
-### Collaborators
+  * Learn how to to build Single-Responsibility controllers to provide a well-designed and versioned API.
+  * Learn how to use controller tests to drive your design.
+  * Use Ruby and ActiveRecord to perform more complicated business intelligence.
+
+## Live Version
+
+You can find a live version of this application on Heroku at: https://rails-engine-1701.herokuapp.com/
+
+The root path is set to ```api/v1/items/random#show```
+
+## Collaborators
 
 -Beth Knight [github](https://github.com/bethknight1234)
 
 -Brett Schwartz [github](https://github.com/bschwartz10)
 
-## How to Get Started
+## Setup
+
+To set up a local copy of this project, perform the following:
 
 Clone the repo in your terminal:
 ```
@@ -130,3 +142,8 @@ Open your browser to `localhost:3000`
 #### Customers
 
 - **<code>GET</code> /api/v1/customers/:id/favorite_merchant** returns a merchant where the customer has conducted the most successful transactions
+
+## Project Links
+[Rails Engine Github URL](https://github.com/bschwartz10/rails_engine)
+
+[Rails Engine Project Spec](http://backend.turing.io/module3/projects/rails_engine)
