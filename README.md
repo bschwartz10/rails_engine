@@ -5,6 +5,8 @@
 
 * This project is an API sales data analysis tool. The return format for all endpoints is JSON.
 
+![Alt text](./app/entrance.png?raw=true "Entrance")
+
 ## Learning Goals
 
   * Learn how to to build Single-Responsibility controllers to provide a well-designed and versioned API.
